@@ -1,8 +1,7 @@
 ---
 date: 2024-12-31
 updated: 2025-01-02
-categories:
-  - Holidays
+categories: Holidays
 ---
 
 ```python title="add_numbers.py"
