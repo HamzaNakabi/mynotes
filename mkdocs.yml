@@ -1,5 +1,5 @@
 site_name: My Personal Notes
-site_url: https://sitename.example
+site_url: https://notes.hamzanakabi.com
 theme:
   name: material
   palette:
@@ -27,3 +27,10 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+
+plugins:
+  - search
+  - blog
+  - macros
+  - meta:
+      enabled: true

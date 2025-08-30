@@ -1,19 +1,9 @@
-# Welcome to MkDocs
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
-## Commands
+# Disclaimer
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+As mentioned, these are my personal notes, collated and made available for everyone to reference. Hence, I would like to highlight some points:
 
-## Project layout
+These notes might contain errors, so please always double-check what you are reading.
+These notes come from aggregating many different and amazing sources. I tried to explicitly put references to the original sources, but in case I missed something please do let me know and I'll amend it promptly.
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
-
-## CLOUD 123
