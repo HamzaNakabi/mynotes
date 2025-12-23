@@ -1,36 +1,205 @@
-site_name: My Personal Notes
+site_name: Hamza's Notes
 site_url: https://notes.hamzanakabi.com
+site_author: Hamza Nakabi
+site_description: Personal knowledge base, technical notes, and learning resources
+
+# Repository (optional - links to your source)
+repo_url: https://github.com/HamzaNakabi/mynotes
+repo_name: HamzaNakabi/mynotes
+
 theme:
   name: material
+  custom_dir: overrides
+
+  # Logo and favicon
+  logo: assets/images/favicon.png
+  favicon: assets/images/favicon.png
+
+  # Features for better UX
+  features:
+    - navigation.instant          # Instant loading (SPA-like)
+    - navigation.tracking         # URL updates with anchor
+    - navigation.tabs             # Top-level sections as tabs
+    - navigation.sections         # Render sections as groups
+    - navigation.expand           # Expand all sections by default
+    - navigation.top              # Back to top button
+    - navigation.footer           # Footer navigation
+    - search.suggest              # Search suggestions
+    - search.highlight            # Highlight search terms
+    - content.code.copy           # Copy button for code blocks
+    - content.code.annotate       # Code annotations
+    - content.tabs.link           # Link content tabs
+    - toc.follow                  # TOC follows scroll
+
   palette:
-    # Dark Mode
+    # Dark Mode (default)
     - scheme: slate
       toggle:
-        icon: material/weather-sunny
-        name: Dark mode
-      primary: red
-      accent: deep purple
+        icon: material/brightness-4
+        name: Switch to light mode
+      primary: indigo
+      accent: cyan
 
     # Light Mode
     - scheme: default
       toggle:
-        icon: material/weather-night
-        name: Light mode
-      primary: blue
-      accent: deep orange
+        icon: material/brightness-7
+        name: Switch to dark mode
+      primary: indigo
+      accent: deep purple
 
+  # Icons
+  icon:
+    repo: fontawesome/brands/github
+    admonition:
+      note: octicons/tag-16
+      abstract: octicons/checklist-16
+      info: octicons/info-16
+      tip: octicons/squirrel-16
+      success: octicons/check-16
+      question: octicons/question-16
+      warning: octicons/alert-16
+      failure: octicons/x-circle-16
+      danger: octicons/zap-16
+      bug: octicons/bug-16
+      example: octicons/beaker-16
+      quote: octicons/quote-16
+
+# Navigation structure
+nav:
+  - Home: index.md
+  - Cloud:
+    - cloud/index.md
+    - AWS:
+      - cloud/aws/index.md
+    - Azure:
+      - cloud/azure/index.md
+    - GCP:
+      - cloud/gcp/index.md
+  - Development:
+    - dev/index.md
+    - Python:
+      - dev/python/index.md
+    - JavaScript:
+      - dev/javascript/index.md
+    - Go:
+      - dev/go/index.md
+    - Tools:
+      - dev/tools/index.md
+  - DevOps:
+    - devops/index.md
+    - Docker:
+      - devops/docker/index.md
+    - Kubernetes:
+      - devops/kubernetes/index.md
+    - CI/CD:
+      - devops/cicd/index.md
+    - Terraform:
+      - devops/terraform/index.md
+  - Security:
+    - security/index.md
+    - Pentesting:
+      - security/pentesting/index.md
+    - CTF:
+      - security/ctf/index.md
+    - Tools:
+      - security/tools/index.md
+  - Learning:
+    - learning/index.md
+    - Certifications:
+      - learning/certifications/index.md
+    - Courses:
+      - learning/courses/index.md
+    - Books:
+      - learning/books/index.md
+  - Projects:
+    - projects/index.md
+  - Cheatsheets:
+    - cheatsheets/index.md
+  - Blog:
+    - blog/index.md
+
+# Markdown extensions
 markdown_extensions:
-  - pymdownx.highlight:
+  # Python Markdown
+  - abbr                          # Abbreviations
+  - admonition                    # Callout boxes (note, warning, tip, etc.)
+  - attr_list                     # Add HTML attributes
+  - def_list                      # Definition lists
+  - footnotes                     # Footnotes
+  - md_in_html                    # Markdown inside HTML
+  - tables                        # Tables
+  - toc:                          # Table of contents
+      permalink: true
+      toc_depth: 3
+
+  # PyMdown Extensions
+  - pymdownx.arithmatex:          # Math equations
+      generic: true
+  - pymdownx.betterem:            # Better emphasis
+      smart_enable: all
+  - pymdownx.caret                # Insert/superscript
+  - pymdownx.details              # Collapsible sections
+  - pymdownx.emoji:               # Emoji support
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:           # Code highlighting
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.superfences
+      auto_title: true
+  - pymdownx.inlinehilite         # Inline code highlighting
+  - pymdownx.keys                 # Keyboard keys
+  - pymdownx.mark                 # Highlighting text
+  - pymdownx.smartsymbols         # Smart symbols
+  - pymdownx.snippets             # Include snippets
+  - pymdownx.superfences:         # Enhanced fenced code blocks
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:              # Content tabs
+      alternate_style: true
+  - pymdownx.tasklist:            # Task lists
+      custom_checkbox: true
+  - pymdownx.tilde                # Strikethrough/subscript
 
+# Plugins
 plugins:
-  - search
-  - blog
+  - search:
+      lang: en
+  - blog:
+      blog_dir: blog
+      post_date_format: long
+      post_url_format: "{slug}"
+      categories: true
+      categories_name: Categories
+      archive: true
+      archive_name: Archive
+  - tags:
+      tags_file: tags.md
   - macros
   - meta:
       enabled: true
+
+# Extra configuration
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/HamzaNakabi
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/in/hamzanakabi
+    - icon: fontawesome/solid/globe
+      link: https://hamzanakabi.com
+
+  generator: false  # Hide "Made with Material for MkDocs"
+
+# Custom CSS (optional)
+extra_css:
+  - stylesheets/extra.css
+
+# Custom JavaScript (optional)
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
